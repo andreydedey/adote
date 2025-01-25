@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Banner } from "./Banner";
 import { Logo } from "./Logo";
+import { AuthHeader } from "./AuthHeader";
+import { AuthSend } from "./AuthSend";
 
 export function Login() {
   return (
@@ -13,10 +15,8 @@ export function Login() {
 
         <hr />
         <div className="w-5/6 p-5">
-          <div className="py-2">
-            <h1 className="font-semibold">Cadastre-se</h1>
-            <h2 className="font-normal">Seu cadastro salva vidas.</h2>
-          </div>
+          <AuthHeader title="Login" subtitle="Seu cadastro salva vidas." />
+
           <hr />
           <form className="grid py-2" action="">
             <div>
@@ -76,28 +76,13 @@ export function Login() {
                   />
                 </div>
               </div>
-              <div className="flex justify-between mt-4">
-                <button
-                  type="button"
-                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 text-sm font-medium rounded-lg px-4 py-2"
-                >
-                  Salvar
-                </button>
-                <Link
-                  to="/register"
-                  className="text-sm text-blue-400 hover:text-blue-500 hover:underline"
-                >
-                  Já tenho uma conta
-                </Link>
-              </div>
+              <AuthSend button="Salvar" link="Já tenho uma conta" />
             </div>
           </form>
         </div>
       </div>
       <div className="flex flex-col items-center text-black">
         <Banner />
-        <h1>ADO.TE</h1>
-        <h2>Nos ajude a salvar vidas</h2>
       </div>
     </main>
   );
