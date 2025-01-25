@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { Banner } from "./Banner";
-import logo_adote from "../../assets/image/logo_adote.webp";
+import { Logo } from "./Logo";
 
 export function Login() {
   return (
@@ -8,10 +9,8 @@ export function Login() {
         className="flex flex-col h-screen"
         style={{ backgroundColor: "#391D34" }}
       >
-        <div className="flex items-center">
-          <img className="w-12 mx-2" src={logo_adote} alt="logo_adote" />
-          <h2>ADO.TE</h2>
-        </div>
+        <Logo />
+
         <hr />
         <div className="w-5/6 p-5">
           <div className="py-2">
@@ -46,19 +45,19 @@ export function Login() {
                 id="email"
                 name="email"
               />
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block font-normal py-1.5" htmlFor="email">
                     Senha:
                   </label>
                   <input
-                    className="block rounded-md px-3 py-1.5 text-base text-gray-900
+                    className="block rounded-md py-1.5 w-full px-3 text-base text-gray-900
                      outline-gray-300 placeholder:text-gray-400
                     focus:outline-2 focus:outline-indigo-600
                     sm:text-sm/6"
-                    type="text"
-                    id="email"
-                    name="email"
+                    type="password"
+                    id="password"
+                    name="password"
                   />
                 </div>
 
@@ -67,15 +66,29 @@ export function Login() {
                     Confirmar Senha:
                   </label>
                   <input
-                    className="block rounded-md px-3 py-1.5 text-base text-gray-900
+                    className="block rounded-md w-full px-3 py-1.5 text-base text-gray-900
                      outline-gray-300 placeholder:text-gray-400
                     focus:outline-2 focus:outline-indigo-600
                     sm:text-sm/6"
-                    type="text"
-                    id="email"
-                    name="email"
+                    type="confirm-password"
+                    id="confirm-password"
+                    name="confirm-password"
                   />
                 </div>
+              </div>
+              <div className="flex justify-between mt-4">
+                <button
+                  type="button"
+                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 text-sm font-medium rounded-lg px-4 py-2"
+                >
+                  Salvar
+                </button>
+                <Link
+                  to="/register"
+                  className="text-sm text-blue-400 hover:text-blue-500 hover:underline"
+                >
+                  Já tenho uma conta
+                </Link>
               </div>
             </div>
           </form>
