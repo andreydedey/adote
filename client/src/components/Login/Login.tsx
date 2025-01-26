@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Banner } from "./Banner";
 import { Logo } from "./Logo";
 import { AuthHeader } from "./AuthHeader";
@@ -76,7 +75,10 @@ export function Login() {
                   />
                 </div>
               </div>
-              <AuthSend button="Salvar" link="Já tenho uma conta" />
+              <AuthSend
+                button="Salvar"
+                link={{ title: "Já tenho uma conta", href: "/register" }}
+              />
             </div>
           </form>
         </div>
