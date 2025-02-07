@@ -1,0 +1,15 @@
+services:
+  client:
+    build: ./client
+    ports:
+      - 8080:5173
+    command: npm run dev
+    develop:
+      watch:
+        - action: sync
+          path: ./client
+          target: ./usr/app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
