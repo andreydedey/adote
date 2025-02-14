@@ -1,9 +1,9 @@
-import { SideBar } from "./SideBar";
+import { SideBar } from "../SideBar";
 
 export function Home() {
   return (
     <>
-      <SideBar />
+      <h1>Home</h1>
     </>
   );
 }
