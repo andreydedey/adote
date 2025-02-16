@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export function Divulgar() {
   return (
     <form action="#" className="p-6 bg-gray-100 rounded-lg">
-      <h1 className="text-center text-xl font-bold mb-4">Quero Divulgar</h1>
+      <h1 className="text-center text-xl font-medium mb-4">Quero Divulgar</h1>
       <div className="flex gap-4 mb-2">
         <label htmlFor="file_input" className="mb-2 text-sm font-medium">
           Fotos do Pet
