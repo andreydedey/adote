@@ -5,6 +5,7 @@ import { Home } from "./components/Home/Home";
 import { Divulgar } from "./components/Divulgar/Divulgar";
 import { Pet } from "./components/Pet/Pet";
 import { LayoutWithSidebar } from "./components/LayoutWithSidebar";
+import { AdoptionSolicitation } from "./components/solicitation/AdoptionSolicitation";
 
 export function App() {
   return (
@@ -16,6 +17,7 @@ export function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/divulgar" element={<Divulgar />} />
         <Route path="/pet" element={<Pet />} />
+        <Route path="/adoption" element={<AdoptionSolicitation />} />
       </Route>
     </Routes>
   );

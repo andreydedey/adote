@@ -1,14 +1,16 @@
+import dog from "../../assets/image/pet.jpg";
+
 export function Pet() {
   return (
     <div className="ml-6">
       <h1 className="text-xl font-medium">Informações do pet</h1>
-      <div className="flex gap-3">
-        <img className="bg-slate-700 w-80 h-44" src="" alt="pet image here" />
+      <div className="flex gap-3 mt-3">
+        <img className="max-w-xs" src={dog} alt="pet image here" />
         <div className="flex flex-col gap-2">
           <h3>
             <span className="font-medium">Nome:</span> (nome do pet aqui!)
           </h3>
-          <div className="max-w-lg flex flex-wrap gap-2">
+          <div className="max-w-sm flex flex-wrap gap-2">
             <span className="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">
               Dócil
             </span>
