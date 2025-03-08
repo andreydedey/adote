@@ -3,10 +3,11 @@ import { SideBar } from "../SideBar";
 export function Home() {
   return (
     <div className="bg-gray-50 rounded-lg p-6">
-      <h1 className="text-center text-xl font-medium mb-4">Seus pets</h1>
+      <h1 className="text-xl font-medium mb-4">Seus pets</h1>
+      <hr />
       <div className="relative overflow-x-auto">
         <table className="w-full text-sm text-left rtl:text-right text-gray-600">
-          <thead className="text-sm text-left rtl:text-right text-gray-800">
+          <thead className="text-sm text-left text-gray-800">
             <tr>
               <th scope="col" className="px-6 py-3">
                 Nome
