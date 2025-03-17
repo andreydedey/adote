@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import {
+  faEnvelope,
   faHouse,
   faPaw,
   faTowerBroadcast,
@@ -30,7 +31,7 @@ export function SideBar() {
             </li>
             <li>
               <Link
-                to={"/login"}
+                to={"/adoption"}
                 className="flex items-center p-2 rounded-lg hover:bg-gray-700 duration-300 ease-out"
               >
                 <FontAwesomeIcon icon={faPaw} />
@@ -44,6 +45,15 @@ export function SideBar() {
               >
                 <FontAwesomeIcon icon={faTowerBroadcast} />
                 <span className="ms-3">Divulgar</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={"/solicitation"}
+                className="flex items-center p-2 rounded-lg hover:bg-gray-700 duration-300 ease-out"
+              >
+                <FontAwesomeIcon icon={faEnvelope} />
+                <span className="ms-3">Solicitações</span>
               </Link>
             </li>
           </ul>
