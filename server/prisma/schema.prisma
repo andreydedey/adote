@@ -12,3 +12,54 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id       String @id @default(uuid())
+  name     String
+  email    String @unique
+  password String
+  pets     Pet[]
+}
+
+model Pet {
+  id                String            @id @default(uuid())
+  nome              String
+  descricao         String?
+  cidade            String
+  estado            String
+  telefone          String
+  user_id           String
+  user              User              @relation(fields: [user_id], references: [id])
+  adoption_requests AdoptionRequest[]
+  race_id           Int
+  race              Race              @relation(fields: [race_id], references: [id])
+  tag_id            Int
+  tag               Tag               @relation(fields: [tag_id], references: [id])
+}
+
+model AdoptionRequest {
+  id             String         @id @default(uuid())
+  data           DateTime       @default(now())
+  pet_id         String
+  pet            Pet            @relation(fields: [pet_id], references: [id])
+  adoption_id    Int
+  adoptionStatus AdoptionStatus @relation(fields: [adoption_id], references: [id])
+}
+
+model Race {
+  id   Int    @id @default(autoincrement())
+  raca String
+  pets Pet[]
+}
+
+model Tag {
+  id     Int    @id @default(autoincrement())
+  status String
+  pets   Pet[]
+}
+
+model AdoptionStatus {
+  id               Int               @id @default(autoincrement())
+  adoption_status  String
+  adoptionRequests AdoptionRequest[]
+}
