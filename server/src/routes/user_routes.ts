@@ -8,8 +8,7 @@ user_router.post(
   '/register',
   // validate(userRegistrationSchema),
   async (request, response) => {
-    console.log(request.body);
-    // const { username, email, password } = request.body;
+    const { username, email, password } = request.body;
 
     // TODO: register user logic
     response.status(201).json({ message: 'all ok here!' });
