@@ -1,16 +1,18 @@
 import { Router } from 'express';
 import { validate } from '../middleware/validate';
 import { userRegistrationSchema } from '../schemas/userSchemas';
+import { register_user } from '../services/register_user';
 
 export const user_router = Router();
 
 user_router.post(
   '/register',
-  // validate(userRegistrationSchema),
+  validate(userRegistrationSchema),
   async (request, response) => {
-    const { username, email, password } = request.body;
+    const { name, email, password } = request.body;
 
     // TODO: register user logic
-    response.status(201).json({ message: 'all ok here!' });
+    const result = register_user({ name, email, password });
+    response.status(201).json({ message: result });
   }
 );

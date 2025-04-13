@@ -1,7 +1,7 @@
 import type { user_type } from '../types/user_types';
 import { userRepository } from '../repositories/user_repository';
 
-const register_user = async ({
+export const register_user = async ({
   name,
   email,
   password,
