@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client/extension';
 import { prisma } from '../lib/prisma';
+import type { user_type } from '../types/user_types';
 
 class UserRepository {
   private static instance: UserRepository;
@@ -29,7 +30,7 @@ class UserRepository {
     name,
     email,
     password,
-  }: { name: string; email: string; password: string }) {
+  }: { name: string; email: string; password: string }): Promise<user_type> {
     const user = await prisma.user.create({
       data: {
         name,

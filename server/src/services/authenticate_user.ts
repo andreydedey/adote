@@ -1,4 +1,6 @@
 import { userRepository } from '../repositories/user_repository';
+import { sign } from 'jsonwebtoken';
+import { env } from '../env';
 
 export const authenticate_user = async ({
   email,
@@ -14,4 +16,11 @@ export const authenticate_user = async ({
   }
 
   // Implement json web token
+  const token = sign({}, env.JWT_KEY, {
+    subject: user.id,
+    expiresIn: '1h',
+  });
+
+  console.log(token);
+  return token;
 };
