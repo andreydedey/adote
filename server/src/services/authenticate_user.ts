@@ -21,6 +21,5 @@ export const authenticate_user = async ({
     expiresIn: '1h',
   });
 
-  console.log(token);
   return token;
 };
