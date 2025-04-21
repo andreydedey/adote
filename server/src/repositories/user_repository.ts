@@ -1,4 +1,3 @@
-import { PrismaClient } from '@prisma/client/extension';
 import { prisma } from '../lib/prisma';
 import type { user_type } from '../types/user_types';
 

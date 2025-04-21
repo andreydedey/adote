@@ -23,11 +23,11 @@ model User {
 
 model Pet {
   id                String            @id @default(uuid())
-  nome              String
-  descricao         String?
-  cidade            String
-  estado            String
-  telefone          String
+  pet_name          String
+  description       String?
+  city              String
+  state             String
+  phonenumber       String
   user_id           String
   user              User              @relation(fields: [user_id], references: [id])
   adoption_requests AdoptionRequest[]
@@ -48,7 +48,7 @@ model AdoptionRequest {
 
 model Race {
   id   Int    @id @default(autoincrement())
-  raca String
+  race String
   pets Pet[]
 }
 
