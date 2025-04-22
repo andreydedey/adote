@@ -22,7 +22,6 @@ class PetRepository {
     phonenumber,
     race_id,
     description,
-    tag_id = 0,
   }: {
     user_id: string;
     pet_name: string;
@@ -31,7 +30,6 @@ class PetRepository {
     phonenumber: string;
     race_id: number;
     description?: string;
-    tag_id: number;
   }) {
     const pet = await prisma.pet.create({
       data: {
@@ -41,8 +39,8 @@ class PetRepository {
         state,
         phonenumber,
         race_id,
-        tag_id,
-        ...(description !== undefined && { description }),
+        description,
+        tag_id: 1,
       },
     });
 

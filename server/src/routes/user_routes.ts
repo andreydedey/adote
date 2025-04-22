@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import { validate } from '../middleware/validate';
 import { userRegistrationSchema } from '../schemas/userSchemas';
-import { register_user } from '../services/register_user';
-import { authenticate_user } from '../services/authenticate_user';
+import { register_user } from '../services/user/register_user';
+import { authenticate_user } from '../services/user/authenticate_user';
 
 export const user_router = Router();
 
