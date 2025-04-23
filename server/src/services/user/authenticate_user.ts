@@ -1,7 +1,8 @@
 import { userRepository } from '../../repositories/user_repository';
 import { sign } from 'jsonwebtoken';
 import { env } from '../../env';
-import { GenerateRefreshToken } from '../../provider/generate_refresh_token';
+import { GenerateRefreshTokenProvider } from '../../provider/generate_refresh_token';
+import { GenerateTokenProvider } from '../../provider/generate_token';
 
 export const authenticate_user = async ({
   email,
@@ -17,12 +18,12 @@ export const authenticate_user = async ({
     return 'Password is incorrect!';
   }
 
-  const token = sign({}, env.JWT_KEY, {
-    subject: user.id,
-    expiresIn: '1h',
-  });
+  // generate token
+  const generateToken = new GenerateTokenProvider();
+  const token = generateToken.execute(user.id);
 
-  const generateRefreshToken = new GenerateRefreshToken();
+  // generate refresh token
+  const generateRefreshToken = new GenerateRefreshTokenProvider();
   const refreshToken = await generateRefreshToken.execute(user.id);
 
   return { token, refreshToken };

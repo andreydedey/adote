@@ -1,7 +1,7 @@
 import { prisma } from '../lib/prisma';
 import dayjs from 'dayjs';
 
-export class GenerateRefreshToken {
+export class GenerateRefreshTokenProvider {
   async execute(user_id: string) {
     const expiresIn = dayjs().add(15, 'seconds').unix();
 
