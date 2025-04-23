@@ -1,6 +1,7 @@
 import { userRepository } from '../../repositories/user_repository';
 import { sign } from 'jsonwebtoken';
 import { env } from '../../env';
+import { GenerateRefreshToken } from '../../provider/generate_refresh_token';
 
 export const authenticate_user = async ({
   email,
@@ -21,5 +22,8 @@ export const authenticate_user = async ({
     expiresIn: '1h',
   });
 
-  return token;
+  const generateRefreshToken = new GenerateRefreshToken();
+  const refreshToken = await generateRefreshToken.execute(user.id);
+
+  return { token, refreshToken };
 };

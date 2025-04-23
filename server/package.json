@@ -9,6 +9,7 @@
     "@types/express": "^5.0.1",
     "@types/node": "^22.13.11",
     "adote": "file:",
+    "dayjs": "^1.11.13",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
