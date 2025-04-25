@@ -1,6 +1,7 @@
 import { response, Router } from 'express';
 import { ensureAuthenticated } from '../middleware/ensure_authentication';
 import { publish_pet } from '../services/pet/publish_pet';
+import { get_user_pets } from '../services/pet/get_user_pets';
 
 export const pet_router = Router();
 
@@ -8,14 +9,10 @@ pet_router.post(
   '/publish_pet',
   ensureAuthenticated,
   async (request, response) => {
-    console.log(request);
-
     const data = {
       user_id: request.user_id,
       ...request.body,
     };
-
-    console.log(request);
 
     const result = await publish_pet(data);
 
@@ -24,3 +21,9 @@ pet_router.post(
     });
   }
 );
+
+pet_router.get('/get_pets', ensureAuthenticated, async (request, response) => {
+  const result = await get_user_pets(request.user_id);
+
+  response.status(200).json(result);
+});

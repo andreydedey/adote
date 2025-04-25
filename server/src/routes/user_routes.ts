@@ -26,6 +26,6 @@ user_router.post(
 
     const result = await authenticate_user({ email, password });
 
-    response.status(201).json({ token: result });
+    response.status(201).json(result);
   }
 );

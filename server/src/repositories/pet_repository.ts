@@ -1,4 +1,5 @@
 import { prisma } from '../lib/prisma';
+import { get_user_pets } from '../services/pet/get_user_pets';
 
 class PetRepository {
   private static instance: PetRepository;
@@ -45,6 +46,16 @@ class PetRepository {
     });
 
     return pet;
+  }
+
+  async getUserPets({ user_id }: { user_id: string }) {
+    const pets = await prisma.pet.findMany({
+      where: {
+        user_id: user_id,
+      },
+    });
+
+    return pets;
   }
 }
 

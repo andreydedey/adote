@@ -1,9 +1,6 @@
-import { userRepository } from '../../repositories/user_repository';
 import { petRepository } from '../../repositories/pet_repository';
 
 export const publish_pet = async (data: Record<string, string | number>) => {
-  console.log('Received data:', data);
-
   if (!data.user_id) {
     return "User ID is missing. Please ensure you're authenticated.";
   }
@@ -19,17 +16,8 @@ export const publish_pet = async (data: Record<string, string | number>) => {
       description: data.description ? String(data.description) : undefined,
     });
 
-    return {
-      success: true,
-      message: 'Pet published successfully',
-      pet,
-    };
+    return pet;
   } catch (error) {
-    console.error('Error publishing pet:', error);
-    return {
-      success: false,
-      message: 'Failed to publish pet. Please check the provided data.',
-      error: (error as Error).message,
-    };
+    return 'Error publishing pet. Please try again later.';
   }
 };

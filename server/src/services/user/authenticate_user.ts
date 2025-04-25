@@ -20,7 +20,7 @@ export const authenticate_user = async ({
 
   // generate token
   const generateToken = new GenerateTokenProvider();
-  const token = generateToken.execute(user.id);
+  const token = await generateToken.execute(user.id);
 
   // generate refresh token
   const generateRefreshToken = new GenerateRefreshTokenProvider();

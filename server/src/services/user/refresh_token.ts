@@ -7,6 +7,7 @@ export const refresh_token = async (refresh_token: string) => {
       id: refresh_token,
     },
   });
+
   if (!new_refresh_token) {
     throw new Error('Refresh Token invalid!');
   }
