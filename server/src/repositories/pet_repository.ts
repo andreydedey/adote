@@ -1,5 +1,4 @@
 import { prisma } from '../lib/prisma';
-import { get_user_pets } from '../services/pet/get_user_pets';
 
 class PetRepository {
   private static instance: PetRepository;
