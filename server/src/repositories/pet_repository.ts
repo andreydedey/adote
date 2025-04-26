@@ -57,6 +57,16 @@ class PetRepository {
 
     return pets;
   }
+
+  async getPet(pet_id: string) {
+    const pet = await prisma.pet.findUnique({
+      where: {
+        id: pet_id,
+      },
+    });
+
+    return pet;
+  }
 }
 
 export const petRepository = PetRepository.getInstance();
