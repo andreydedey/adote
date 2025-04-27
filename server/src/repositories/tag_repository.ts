@@ -14,13 +14,9 @@ class TagRepository {
     return TagRepository.instance;
   }
 
-  async getTagById(tag_id: number) {
-    const tag = await prisma.tag.findUnique({
-      where: {
-        id: tag_id,
-      },
-    });
-    return tag;
+  async getAllTags() {
+    const tags = await prisma.tag.findMany();
+    return tags;
   }
 }
 
