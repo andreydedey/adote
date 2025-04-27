@@ -4,8 +4,11 @@ import { env } from './env';
 import { user_router } from './routes/user_routes';
 import { pet_router } from './routes/pets_routes';
 import { race_router } from './routes/race_routes';
+import cors from 'cors';
 
 const app = express();
+
+app.use(cors())
 
 app.use(express.json());
 
