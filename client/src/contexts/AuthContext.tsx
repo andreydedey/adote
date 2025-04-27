@@ -21,9 +21,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const token = Cookies.get('token');
     const user_id = Cookies.get('user_id');
 
-    console.log(token, user_id)
-    console.log('passour por aqui')
-
     if (token) {
       api.defaults.headers.common.Authorization = `Bearer ${token}`;
       setUserId(user_id);
@@ -38,7 +35,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       email,
       password
     });
-    console.log(response.data)
     
     const { token } = response.data;
     const { user_id } = response.data.refreshToken;

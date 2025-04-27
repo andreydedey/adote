@@ -1,8 +1,33 @@
-// interface TableProps {
+interface TableProps {
+  pets: pet[];
+  races: race[];
+  tags: tag[];
+}
 
-// }
+type pet = {
+  id: string;
+  pet_name: string;
+  description: string;
+  city: string;
+  state: string;
+  phonenumber: string;
+  user_id: string;
+  race_id: number;
+  tag_id: number;
+};
 
-export function Table() {
+type race = {
+  id: number,
+  race: string,
+}
+
+type tag = {
+  id: number,
+  status: string,
+}
+
+
+export function Table({pets, races, tags}: TableProps) {
   return (
     <div className="relative overflow-x-auto">
       <table className="w-full text-sm text-left rtl:text-right text-gray-600">
@@ -26,18 +51,19 @@ export function Table() {
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b border-gray-400">
+          { pets.map((pet) => (
+            <tr key={pet.id} className="border-b border-gray-400">
             <th
               scope="row"
               className="px-6 py-4 font-medium tex-gray-600 whitespace-nowrap"
             >
-              Theo
+              {pet.pet_name}
             </th>
             <td className="px-6 py-4">Foto here!</td>
-            <td className="px-6 py-4">Poodle</td>
+            <td className="px-6 py-4">{races.find((race) => race.id === pet.race_id)?.race}</td>
             <td className="px-6 py-4">
               <span className="bg-green-800 text-green-200 text-xs font-medium px-5 py-2.5 rounded-lg">
-                Adotado
+                {tags.find((tag) => tag.id === pet.tag_id)?.status}
               </span>
             </td>
             <td className="px-6 py-4">
@@ -49,7 +75,7 @@ export function Table() {
                 Remover
               </button>
             </td>
-          </tr>
+          </tr>))}
         </tbody>
       </table>
     </div>
