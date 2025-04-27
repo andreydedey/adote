@@ -3,6 +3,7 @@ import { ensureAuthenticated } from '../middleware/ensure_authentication';
 import { publish_pet } from '../services/pet/publish_pet';
 import { get_user_pets } from '../services/pet/get_user_pets';
 import { get_pet } from '../services/pet/get_pet';
+import { delete_pet } from '../services/pet/delete_pet';
 
 export const pet_router = Router();
 
@@ -36,9 +37,22 @@ pet_router.get(
     const user_id = request.user_id;
     const pet_id = request.params.pet_id;
 
+    const result = await get_pet(user_id, pet_id);
+
+    response.status(200).json(result);
+  }
+);
+
+pet_router.delete(
+  '/delete_pet/:pet_id',
+  ensureAuthenticated,
+  async (request, response) => {
+    const user_id = request.user_id;
+    const pet_id = request.params.pet_id;
+
     console.log(request.params);
 
-    const result = await get_pet(user_id, pet_id);
+    const result = await delete_pet(user_id, pet_id);
 
     response.status(200).json(result);
   }

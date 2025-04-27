@@ -66,6 +66,16 @@ class PetRepository {
 
     return pet;
   }
+
+  async deletePet(pet_id: string) {
+    const pet = await prisma.pet.delete({
+      where: {
+        id: pet_id,
+      },
+    });
+
+    return pet;
+  }
 }
 
 export const petRepository = PetRepository.getInstance();
