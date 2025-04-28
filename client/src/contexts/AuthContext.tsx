@@ -24,7 +24,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (token) {
       api.defaults.headers.common.Authorization = `Bearer ${token}`;
       setUserId(user_id);
-      navigate('/home');
+      // if user in login or register page, redirect to home
+      if (location.pathname === "/login" || location.pathname === "/register") {
+        navigate("/home");
+      }
     } else {
       navigate('/login');
     }

@@ -5,7 +5,7 @@ import { Home } from "./components/Home/Home";
 import { Pet } from "./components/Pet/Pet";
 import { LayoutWithSidebar } from "./components/LayoutWithSidebar";
 import { AdoptionSolicitation } from "./components/solicitation/AdoptionSolicitation";
-import { Adopt } from "./components/Adote/Adote";
+import { Adopt } from "./components/Adopt/Adote";
 import { Publicize } from "./components/Publicize/Publicize";
 import { AuthProvider } from "./contexts/AuthContext";
 

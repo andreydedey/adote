@@ -1,30 +1,12 @@
+import type { pet, race, tag } from "../../utils/types/Pet";
+
 interface TableProps {
   pets: pet[];
   races: race[];
   tags: tag[];
 }
 
-type pet = {
-  id: string;
-  pet_name: string;
-  description: string;
-  city: string;
-  state: string;
-  phonenumber: string;
-  user_id: string;
-  race_id: number;
-  tag_id: number;
-};
 
-type race = {
-  id: number,
-  race: string,
-}
-
-type tag = {
-  id: number,
-  status: string,
-}
 
 
 export function Table({pets, races, tags}: TableProps) {

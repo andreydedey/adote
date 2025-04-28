@@ -4,13 +4,6 @@ import { Navigate, Outlet, useNavigate } from "react-router";
 import { AuthContext } from "../contexts/AuthContext";
 
 export function LayoutWithSidebar() {
-  // const {isAuthenticated} = useContext(AuthContext);
-  // const navigate = useNavigate();
-  
-  // if (!isAuthenticated) {
-  //   return <Navigate to="/login" />;
-  // }
-
   return (
     <>
       <SideBar />
