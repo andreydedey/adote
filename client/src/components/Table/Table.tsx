@@ -1,3 +1,4 @@
+import { api } from "../../services/api";
 import type { pet, race, tag } from "../../utils/types/Pet";
 
 interface TableProps {
@@ -6,10 +7,19 @@ interface TableProps {
   tags: tag[];
 }
 
-
-
-
 export function Table({pets, races, tags}: TableProps) {
+  const removePet = async (id: string) => {
+    api.delete(`/pet/delete_pet/${id}`)
+      .then((response) => {
+        const { data } = response;
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error removing pet:", error);
+      });
+
+  }
+
   return (
     <div className="relative overflow-x-auto">
       <table className="w-full text-sm text-left rtl:text-right text-gray-600">
@@ -37,7 +47,7 @@ export function Table({pets, races, tags}: TableProps) {
             <tr key={pet.id} className="border-b border-gray-400">
             <th
               scope="row"
-              className="px-6 py-4 font-medium tex-gray-600 whitespace-nowrap"
+              className="px-6 py-4 font-medium text-gray-600 whitespace-nowrap"
             >
               {pet.pet_name}
             </th>
@@ -53,6 +63,7 @@ export function Table({pets, races, tags}: TableProps) {
                 type="button"
                 className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-3
                   font-medium rounded-lg text-sm px-5 py-2.5"
+                  onClick={() => removePet(pet.id)}
               >
                 Remover
               </button>
