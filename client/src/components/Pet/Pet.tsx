@@ -5,15 +5,16 @@ import { api } from "../../services/api";
 import type { pet, race } from "../../utils/types/Pet";
 
 export function Pet() {
-  const  { id } = useParams<{id: string}>();
+  const { id } = useParams<{ id: string }>();
 
   const [pet, setPet] = useState<pet | null>(null);
   const [races, setRaces] = useState<race[]>([]);
 
   useEffect(() => {
-    console.log(id)
+    console.log(id);
 
-    api.get(`/pet/get_pet/${id}`)
+    api
+      .get(`/pet/get_pet/${id}`)
       .then((response) => {
         const { data } = response;
         setPet(data);
@@ -21,10 +22,10 @@ export function Pet() {
       })
       .catch((error) => {
         console.error("Error fetching pet data:", error);
-      }
-    );
+      });
 
-    api.get("/race/get_races")
+    api
+      .get("/race/get_races")
       .then((response) => {
         const { data } = response;
         setRaces(data.races);
@@ -32,9 +33,8 @@ export function Pet() {
       })
       .catch((error) => {
         console.error("Error fetching pet data:", error);
-      }
-    );
-  }, [id])
+      });
+  }, [id]);
   return (
     <div className="ml-6">
       <h1 className="text-xl font-medium">Informações do pet</h1>
@@ -58,16 +58,18 @@ export function Pet() {
         </div>
       </div>
 
-        {pet?.description && <div className="max-w-sm mt-3">
-        <h3 className="font-medium">Descrição:</h3>
-        <p>
-          {pet.description}
-        </p>
-        <div className="flex gap-2 mt-3">
-          <h3 className="font-medium">Raça</h3>
-          <p className="bg-slate-300 rounded-lg inline px-2">{(races.find((race) => race.id === pet?.race_id)?.race)}</p>
+      {pet?.description && (
+        <div className="max-w-sm mt-3">
+          <h3 className="font-medium">Descrição:</h3>
+          <p>{pet.description}</p>
+          <div className="flex gap-2 mt-3">
+            <h3 className="font-medium">Raça</h3>
+            <p className="bg-slate-300 rounded-lg inline px-2">
+              {races.find((race) => race.id === pet?.race_id)?.race}
+            </p>
+          </div>
         </div>
-      </div>}
+      )}
 
       <hr className="my-3" />
 

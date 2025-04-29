@@ -12,41 +12,49 @@ type formData = {
   city: string;
   state: string;
   phonenumber: string;
-  race_id: number
-}
+  race_id: number;
+};
 
 export function Publicize() {
   const navigate = useNavigate();
   const [races, setRaces] = useState<race[]>([]);
 
-  const { register, handleSubmit } = useForm<formData>()
+  const { register, handleSubmit } = useForm<formData>();
 
-  useEffect(() => {    
-        api.get('/race/get_races')
-        .then((response) => {
-          const { data } = response;
-          setRaces(data.races);
-        }).catch((error) => {
-          console.error("Error fetching races:", error);
-        })
-      }, [])
+  useEffect(() => {
+    api
+      .get("/race/get_races")
+      .then((response) => {
+        const { data } = response;
+        setRaces(data.races);
+      })
+      .catch((error) => {
+        console.error("Error fetching races:", error);
+      });
+  }, []);
 
-  const save = async ({pet_name, city, state, phonenumber, race_id}: formData) => {
-    const race_id_int = Number(race_id)
-    console.log(race_id_int)
-    console.log(typeof race_id_int)
-    const response = await api.post('/pet/publish_pet', {
+  const save = async ({
+    pet_name,
+    city,
+    state,
+    phonenumber,
+    race_id,
+  }: formData) => {
+    const race_id_int = Number(race_id);
+    console.log(race_id_int);
+    console.log(typeof race_id_int);
+    const response = await api.post("/pet/publish_pet", {
       pet_name,
       city,
       state,
       phonenumber,
-      race_id: race_id_int
+      race_id: race_id_int,
     });
 
-    navigate('/home');
+    navigate("/home");
 
-    console.log(response.data)
-  }
+    console.log(response.data);
+  };
 
   return (
     <form action="#" className="p-6 bg-gray-100 rounded-lg">
@@ -89,7 +97,7 @@ export function Publicize() {
           <input
             type="text"
             className="block bg-gray-50 border border-gray-300 text-sm rounded-lg focus:outline-blue-500 w-full p-2.5"
-            {...register("city")}	
+            {...register("city")}
           />
         </div>
       </div>
@@ -126,19 +134,20 @@ export function Publicize() {
         Raça
       </label>
       <select
-      id="race"
-      {...register("race_id", { required: true })}
-      defaultValue=""
-      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:outline-blue-500 block w-full p-2.5"
-    >
-      <option value="" disabled>Selecione uma raça</option>
-      {races.map((race) => (
-        <option key={race.id} value={race.id}>
-          {race.race}
+        id="race"
+        {...register("race_id", { required: true })}
+        defaultValue=""
+        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:outline-blue-500 block w-full p-2.5"
+      >
+        <option value="" disabled>
+          Selecione uma raça
         </option>
-      ))}
-    </select>
-
+        {races.map((race) => (
+          <option key={race.id} value={race.id}>
+            {race.race}
+          </option>
+        ))}
+      </select>
 
       <button
         type="submit"

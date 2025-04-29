@@ -9,11 +9,15 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 export function Register() {
   const { register, handleSubmit } = useForm();
-  const { signIn } = useContext(AuthContext);
+  const { signUp } = useContext(AuthContext);
 
   async function handleSignIn(data) {
-    console.log(data);
-    await signIn(data);
+    const { password, confirmPassword } = data;
+    if (password !== confirmPassword) {
+      alert("As senhas não coincidem.");
+      return;
+    }
+    await signUp(data);
   }
 
   return (
@@ -58,7 +62,10 @@ export function Register() {
               />
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-normal py-1.5" htmlFor="password">
+                  <label
+                    className="block font-normal py-1.5"
+                    htmlFor="password"
+                  >
                     Senha:
                   </label>
                   <input
@@ -73,7 +80,10 @@ export function Register() {
                 </div>
 
                 <div>
-                  <label className="block font-normal py-1.5" htmlFor="confirm-password">
+                  <label
+                    className="block font-normal py-1.5"
+                    htmlFor="confirm-password"
+                  >
                     Confirmar Senha:
                   </label>
                   <input

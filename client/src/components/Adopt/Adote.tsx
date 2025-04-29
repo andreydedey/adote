@@ -6,7 +6,6 @@ import { api } from "../../services/api";
 import type { pet, race, tag } from "../../utils/types/Pet";
 
 export function Adopt() {
-
   const [pets, setPets] = useState<pet[]>([]);
   const [races, setRaces] = useState<race[]>([]);
   const [tags, setTags] = useState<tag[]>([]);
@@ -18,47 +17,58 @@ export function Adopt() {
 
   const handleFilter = () => {
     const filtered = pets.filter((pet) => {
-      const cityMatches = selectedCity !== "" ? pet.city.toLowerCase().includes(selectedCity.toLowerCase()) : true;
-      const raceMatches = selectedRace !== "" ? (races.find((race) => pet.race_id === race.id))?.race.toLowerCase()
-                                                .includes(selectedRace.toLocaleLowerCase()) : true;
+      const cityMatches =
+        selectedCity !== ""
+          ? pet.city.toLowerCase().includes(selectedCity.toLowerCase())
+          : true;
+      const raceMatches =
+        selectedRace !== ""
+          ? races
+              .find((race) => pet.race_id === race.id)
+              ?.race.toLowerCase()
+              .includes(selectedRace.toLocaleLowerCase())
+          : true;
 
-      console.log((races.find((race) => pet.race_id === race.id))?.race)
-  
+      console.log(races.find((race) => pet.race_id === race.id)?.race);
+
       return cityMatches && raceMatches;
     });
-  
+
     setFilteredPets(filtered);
   };
-  
-    useEffect(() => {
-      api.get('/pet/get_pets')
+
+  useEffect(() => {
+    api
+      .get("/pet/get_pets")
       .then((response) => {
         const { data } = response;
         setPets(data);
         setFilteredPets(data);
-      }).catch((error) => {
+      })
+      .catch((error) => {
         console.error("Error fetching pets:", error);
-      }
-      );
-  
-      api.get('/race/get_races')
+      });
+
+    api
+      .get("/race/get_races")
       .then((response) => {
         const { data } = response;
         setRaces(data.races);
-      }).catch((error) => {
-        console.error("Error fetching races:", error);
       })
-  
-      api.get('/tag/get_tags')
+      .catch((error) => {
+        console.error("Error fetching races:", error);
+      });
+
+    api
+      .get("/tag/get_tags")
       .then((response) => {
         const { data } = response;
         setTags(data.tags);
-      }
-      ).catch((error) => {
+      })
+      .catch((error) => {
         console.error("Error fetching tags:", error);
-      }
-      );
-    }, [])
+      });
+  }, []);
 
   return (
     <div className="bg-gray-50 rounded-lg p-6">
@@ -95,7 +105,7 @@ export function Adopt() {
           type="button"
           className="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 
         focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2"
-        onClick={handleFilter}
+          onClick={handleFilter}
         >
           Filtrar
         </button>

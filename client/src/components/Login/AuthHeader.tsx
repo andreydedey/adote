@@ -4,9 +4,8 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { Navigate } from "react-router-dom";
 
 export function AuthHeader({ title, subtitle }: typeAuthHeader) {
+  const { isAuthenticated } = useContext(AuthContext);
 
-  const {isAuthenticated} = useContext(AuthContext);
-  
   // if (!isAuthenticated) {
   //   return <Navigate to="/home" />;
   // }

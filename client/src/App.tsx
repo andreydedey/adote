@@ -17,13 +17,13 @@ export function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         {/* As rotas abaixo contém sidebar */}
-          <Route element={<LayoutWithSidebar />}>
-            <Route path="/home" element={<Home />} />
-            <Route path="/divulgar" element={<Publicize />} />
-            <Route path="/pet/:id" element={<Pet />} />
-            <Route path="/adoption" element={<Adopt />} />
-            <Route path="/solicitation" element={<AdoptionSolicitation />} />
-          </Route>
+        <Route element={<LayoutWithSidebar />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/divulgar" element={<Publicize />} />
+          <Route path="/pet/:id" element={<Pet />} />
+          <Route path="/adoption" element={<Adopt />} />
+          <Route path="/solicitation" element={<AdoptionSolicitation />} />
+        </Route>
       </Routes>
     </AuthProvider>
   );

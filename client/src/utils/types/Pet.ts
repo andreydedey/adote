@@ -11,11 +11,11 @@ export type pet = {
 };
 
 export type race = {
-  id: number,
-  race: string,
-}
+  id: number;
+  race: string;
+};
 
 export type tag = {
-  id: number,
-  status: string,
-}
+  id: number;
+  status: string;
+};

@@ -12,9 +12,9 @@ user_router.post(
   async (request, response) => {
     const { name, email, password } = request.body;
 
-    const result = register_user({ name, email, password });
+    const result = await register_user({ name, email, password });
 
-    response.status(201).json({ message: result });
+    response.status(201).json(result);
   }
 );
 
