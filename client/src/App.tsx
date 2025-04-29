@@ -20,7 +20,7 @@ export function App() {
           <Route element={<LayoutWithSidebar />}>
             <Route path="/home" element={<Home />} />
             <Route path="/divulgar" element={<Publicize />} />
-            <Route path="/pet" element={<Pet />} />
+            <Route path="/pet/:id" element={<Pet />} />
             <Route path="/adoption" element={<Adopt />} />
             <Route path="/solicitation" element={<AdoptionSolicitation />} />
           </Route>

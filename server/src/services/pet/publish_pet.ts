@@ -18,6 +18,6 @@ export const publish_pet = async (data: Record<string, string | number>) => {
 
     return pet;
   } catch (error) {
-    return 'Error publishing pet. Please try again later.';
+    return error;
   }
 };

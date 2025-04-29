@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { api } from "../../services/api";
 import type { pet, race, tag } from "../../utils/types/Pet";
 
@@ -45,12 +46,14 @@ export function Table({pets, races, tags}: TableProps) {
         <tbody>
           { pets.map((pet) => (
             <tr key={pet.id} className="border-b border-gray-400">
-            <th
-              scope="row"
-              className="px-6 py-4 font-medium text-gray-600 whitespace-nowrap"
-            >
-              {pet.pet_name}
-            </th>
+              <Link to={`/pet/${pet.id}`} className="hover:cursor-pointer">
+              <th
+                scope="row"
+                className="px-6 py-6 font-medium text-gray-600 whitespace-nowrap"
+                >
+                  {pet.pet_name}
+              </th>
+                </Link>
             <td className="px-6 py-4">Foto here!</td>
             <td className="px-6 py-4">{races.find((race) => race.id === pet.race_id)?.race}</td>
             <td className="px-6 py-4">
