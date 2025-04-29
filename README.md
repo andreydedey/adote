@@ -24,7 +24,8 @@ For the Front-End i used the ``React`` Framework and ``TailwindCSS`` to build th
 <img src="https://github.com/user-attachments/assets/fd78dbe1-be83-4b85-84ff-d3d732ac493f" alt="home_page" style="width:500px;"> </br>
 <img src="https://github.com/user-attachments/assets/0998f9d7-3887-47a3-bf1d-0f1d17a2c46a" alt="home_page" style="width:500px;"> </br>
 <img src="https://github.com/user-attachments/assets/46f71c9c-8161-4685-86be-cffb833301c5" alt="home_page" style="width:500px;"> </br>
-<img src="https://github.com/user-attachments/assets/ee8d31dc-486f-44f8-b9fc-a479989f179f" alt="home_page" style="width:500px;"> </br>
+<img src="https://github.com/user-attachments/assets/4fd4801f-3ff0-40a9-9e8e-d69d3cbc0358" alt="home_page" style="width:500px;"> </br>
+
 
 ### Database Schema
 <img src="https://github.com/user-attachments/assets/b1c1465e-b796-40e0-96c2-f810bf7fce9f" alt="home_page" style="width:500px;"> </br>
