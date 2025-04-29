@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import dog from "../../assets/image/pet.jpg";
+import golden from "../../assets/image/golden.jpg";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import type { pet, race } from "../../utils/types/Pet";
@@ -39,7 +39,7 @@ export function Pet() {
     <div className="ml-6">
       <h1 className="text-xl font-medium">Informações do pet</h1>
       <div className="flex gap-3 mt-3">
-        <img className="max-w-xs" src={dog} alt="pet" />
+        <img className="max-w-xs rounded-md" src={golden} alt="pet" />
         <div className="flex flex-col gap-2">
           <h3>
             <span className="font-medium">Nome:</span> {pet?.pet_name}

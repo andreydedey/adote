@@ -9,16 +9,16 @@ export function AdoptionSolicitation() {
           className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm text-white"
           style={{ backgroundColor: "#391D34" }}
         >
-          <h1 className="text-2xl font-medium my-3 ml-5">Pluto</h1>
+          <h1 className="text-2xl font-medium my-3 ml-5">Tod</h1>
           <img src={dog} alt="dog.jpg" />
           <div className="p-5">
             <h2 className="mb-2 text-xl font-medium leading-none">
               Polvo Lino
             </h2>
             <h2 className="text-md font-medium">Telefone:</h2>
-            <p className="mb-3 font-normal">(12) 12839-1239</p>
+            <p className="mb-3 font-normal">(91) 12839-1239</p>
             <h2 className="text-md font-medium">Cidade:</h2>
-            <p className="mb-3 font-normal">polvolândia</p>
+            <p className="mb-3 font-normal">Belém</p>
             <button
               type="button"
               className="focus:outline-none text-white bg-green-700 hover:bg-green-800 

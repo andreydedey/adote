@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { api } from "../../services/api";
 import type { pet, race, tag } from "../../utils/types/Pet";
+import golden from '../../assets/image/golden.jpg'
 
 interface TableProps {
   pets: pet[];
@@ -30,7 +31,7 @@ export function Table({pets, races, tags}: TableProps) {
               Nome
             </th>
             <th scope="col" className="px-6 py-3">
-              Foto
+              {}
             </th>
             <th scope="col" className="px-6 py-3">
               Raça
@@ -54,7 +55,9 @@ export function Table({pets, races, tags}: TableProps) {
                   {pet.pet_name}
               </th>
                 </Link>
-            <td className="px-6 py-4">Foto here!</td>
+                <td className="px-6 py-4">
+                  <img src={golden} alt="Pet" className="w-12 h-12 object-cover" />
+                </td>
             <td className="px-6 py-4">{races.find((race) => race.id === pet.race_id)?.race}</td>
             <td className="px-6 py-4">
               <span className="bg-green-800 text-green-200 text-xs font-medium px-5 py-2.5 rounded-lg">
